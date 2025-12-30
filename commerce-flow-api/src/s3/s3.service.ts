@@ -36,7 +36,7 @@ export class S3Service {
 
     const result = await upload.done();
 
-    // retorna URL publica do arquivo
+    // retorna URL pública do arquivo
     return `https://${bucket}.s3.${this.configService.get('AWS_REGION')}.amazonaws.com/${key}`;
   }
 }

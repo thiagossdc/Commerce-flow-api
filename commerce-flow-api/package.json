@@ -20,6 +20,10 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "devDependencies": {
     "@nestjs/cli": "^10.4.9",
     "@nestjs/common": "^10.4.20",

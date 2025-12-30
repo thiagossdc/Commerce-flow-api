@@ -51,7 +51,7 @@ async function bootstrap() {
   `);
 }
 
-// Export the bootstrap function for testing
+// Exporta a função bootstrap para testes
 export { bootstrap };
 
 bootstrap();

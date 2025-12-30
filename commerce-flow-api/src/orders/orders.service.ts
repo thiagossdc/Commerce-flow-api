@@ -76,11 +76,18 @@ export class OrdersService {
 
     const savedOrder = await this.orderModel.create(orderData);
 
-    await this.notificacaoQueue.add({
-      orderId: savedOrder._id,
-      customerName: customer.name,
-      customerEmail: customer.email,
-    });
+    // tenta adicionar job na fila, mas não falha se houver erro
+    try {
+      await this.notificacaoQueue.add({
+        orderId: savedOrder._id,
+        customerName: customer.name,
+        customerEmail: customer.email,
+      });
+    } catch (error) {
+      console.warn(`⚠️  Não foi possível adicionar notificação na fila: ${error.message}`);
+      console.log(`✅ Pedido criado com sucesso! Valor USD: $${valorTotalUSD.toFixed(2)}, Valor BRL: R$${valorTotalBRL.toFixed(2)} (notificação pendente)`);
+      return savedOrder;
+    }
 
     console.log(`✅ Pedido criado com sucesso! Valor USD: $${valorTotalUSD.toFixed(2)}, Valor BRL: R$${valorTotalBRL.toFixed(2)}`);
 
