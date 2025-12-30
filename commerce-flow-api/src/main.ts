@@ -7,7 +7,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Configurações globais
+  // configs globais
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
     forbidNonWhitelisted: true,
@@ -16,10 +16,10 @@ async function bootstrap() {
 
   app.useGlobalFilters(new AllExceptionsFilter());
 
-  // Configuração CORS
+  // config CORS
   app.enableCors();
 
-  // Configuração Swagger
+  // config Swagger
   const config = new DocumentBuilder()
     .setTitle('CommerceFlow API')
     .setDescription('API completa para gestão de comércio eletrônico')

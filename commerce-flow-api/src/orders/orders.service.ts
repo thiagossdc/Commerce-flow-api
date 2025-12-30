@@ -25,11 +25,11 @@ export class OrdersService {
     try {
       const response = await firstValueFrom(
         this.httpService.get('https://economia.awesomeapi.com.br/json/last/USD-BRL', {
-          timeout: 5000, // 5 segundos timeout
+          timeout: 5000, // timeout 5s
         }),
       );
 
-      // Validação da resposta
+      // valida resposta
       if (!response.data || !response.data.USDBRL) {
         throw new Error('Invalid API response format');
       }
@@ -46,7 +46,7 @@ export class OrdersService {
     } catch (error) {
       console.error('❌ Erro ao buscar taxa de câmbio:', error.message);
 
-      // Fallback: taxa aproximada em caso de falha da API
+      // fallback: taxa aproximada se API falhar
       const fallbackRate = 5.50;
       console.warn(`⚠️  Usando taxa de fallback: USD 1.00 = BRL ${fallbackRate.toFixed(4)}`);
 

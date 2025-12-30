@@ -10,7 +10,7 @@ export class NotificacaoProcessor {
   @Process()
   async handleNotificacao(job: Job<any>) {
     console.log(`Enviando email de confirmação para pedido ${job.data.orderId}`);
-    // Simulação de envio de email
+    // simula envio de email
     console.log(`Email enviado para ${job.data.customerEmail}: Pedido ${job.data.orderId} confirmado.`);
     return { success: true };
   }
