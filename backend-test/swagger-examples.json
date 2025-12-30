@@ -1,0 +1,125 @@
+{
+  "customers": {
+    "create": {
+      "description": "Exemplo para criar cliente",
+      "payload": {
+        "name": "João Silva",
+        "email": "joao.silva@email.com",
+        "country": "Brasil"
+      }
+    },
+    "create_alternative": {
+      "description": "Exemplo alternativo para criar cliente",
+      "payload": {
+        "name": "Maria Santos",
+        "email": "maria.santos@email.com",
+        "country": "Portugal"
+      }
+    },
+    "update": {
+      "description": "Exemplo para atualizar cliente (apenas campos que deseja alterar)",
+      "payload": {
+        "name": "João Silva Atualizado",
+        "email": "joao.silva.atualizado@email.com"
+      }
+    }
+  },
+  "orders": {
+    "create": {
+      "description": "Exemplo para criar pedido",
+      "payload": {
+        "customerId": "67a1b2c3d4e5f6789abcdef0",
+        "date": "2025-12-30",
+        "items": [
+          {
+            "product": "Notebook Dell",
+            "quantity": 1,
+            "precoUnitarioUSD": 1200.00
+          },
+          {
+            "product": "Mouse Logitech",
+            "quantity": 2,
+            "precoUnitarioUSD": 25.50
+          }
+        ]
+      }
+    },
+    "create_simple": {
+      "description": "Exemplo simples para criar pedido",
+      "payload": {
+        "customerId": "67a1b2c3d4e5f6789abcdef1",
+        "date": "2025-12-29",
+        "items": [
+          {
+            "product": "iPhone 15",
+            "quantity": 1,
+            "precoUnitarioUSD": 999.00
+          }
+        ]
+      }
+    },
+    "update": {
+      "description": "Exemplo para atualizar pedido",
+      "payload": {
+        "date": "2025-12-31",
+        "items": [
+          {
+            "product": "Notebook Dell Atualizado",
+            "quantity": 1,
+            "precoUnitarioUSD": 1300.00
+          }
+        ]
+      }
+    },
+    "pagination": {
+      "description": "Exemplos de parâmetros de paginação",
+      "examples": {
+        "page_1_limit_10": "?page=1&limit=10",
+        "page_2_limit_5": "?page=2&limit=5",
+        "page_1_limit_20": "?page=1&limit=20"
+      }
+    }
+  },
+  "reports": {
+    "top_customers": {
+      "description": "Exemplos para relatório de top clientes",
+      "examples": {
+        "default": "?top=10",
+        "top_5": "?top=5",
+        "top_20": "?top=20"
+      }
+    }
+  },
+  "error_examples": {
+    "invalid_customer": {
+      "description": "Exemplo de dados inválidos para cliente",
+      "payload": {
+        "name": "",
+        "email": "email-invalido",
+        "country": ""
+      }
+    },
+    "invalid_order": {
+      "description": "Exemplo de dados inválidos para pedido",
+      "payload": {
+        "customerId": "",
+        "date": "data-invalida",
+        "items": []
+      }
+    }
+  },
+  "test_flow": {
+    "description": "Fluxo completo de teste",
+    "steps": [
+      "1. Criar um cliente usando customers.create.payload",
+      "2. Copiar o ID retornado",
+      "3. Criar um pedido usando orders.create.payload (substituir customerId)",
+      "4. Listar pedidos usando GET /orders",
+      "5. Buscar pedido específico usando GET /orders/{id}",
+      "6. Atualizar pedido usando PATCH /orders/{id}",
+      "7. Verificar relatório usando GET /relatorios/top-clientes",
+      "8. Deletar pedido usando DELETE /orders/{id}",
+      "9. Deletar cliente usando DELETE /customers/{id}"
+    ]
+  }
+}

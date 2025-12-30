@@ -1,0 +1,430 @@
+{
+  "info": {
+    "name": "CommerceFlow API - Testes para Swagger",
+    "description": "Coleção de testes e exemplos para testar a API CommerceFlow no Swagger UI",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Criar Cliente - Exemplo 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao.silva@email.com\",\n  \"country\": \"Brasil\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"]
+            }
+          }
+        },
+        {
+          "name": "Criar Cliente - Exemplo 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Maria Santos\",\n  \"email\": \"maria.santos@email.com\",\n  \"country\": \"Portugal\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"]
+            }
+          }
+        },
+        {
+          "name": "Criar Cliente - Exemplo 3 (Dados Inválidos)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"\",\n  \"email\": \"email-invalido\",\n  \"country\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"]
+            }
+          }
+        },
+        {
+          "name": "Listar Todos os Clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/customers",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/customers/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67a1b2c3d4e5f6789abcdef0",
+                  "description": "ID do cliente (use um ID válido retornado da criação)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Cliente",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"João Silva Atualizado\",\n  \"email\": \"joao.silva.atualizado@email.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customers/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67a1b2c3d4e5f6789abcdef0",
+                  "description": "ID do cliente (use um ID válido)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Deletar Cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/customers/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["customers", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67a1b2c3d4e5f6789abcdef0",
+                  "description": "ID do cliente (use um ID válido)"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "Criar Pedido - Exemplo 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"67a1b2c3d4e5f6789abcdef0\",\n  \"date\": \"2025-12-30\",\n  \"items\": [\n    {\n      \"product\": \"Notebook Dell\",\n      \"quantity\": 1,\n      \"precoUnitarioUSD\": 1200.00\n    },\n    {\n      \"product\": \"Mouse Logitech\",\n      \"quantity\": 2,\n      \"precoUnitarioUSD\": 25.50\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            }
+          }
+        },
+        {
+          "name": "Criar Pedido - Exemplo 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"67a1b2c3d4e5f6789abcdef1\",\n  \"date\": \"2025-12-29\",\n  \"items\": [\n    {\n      \"product\": \"iPhone 15\",\n      \"quantity\": 1,\n      \"precoUnitarioUSD\": 999.00\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            }
+          }
+        },
+        {
+          "name": "Criar Pedido - Exemplo 3 (Dados Inválidos)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"\",\n  \"date\": \"data-invalida\",\n  \"items\": []\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            }
+          }
+        },
+        {
+          "name": "Obter Taxa de Câmbio",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/exchange-rate",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", "exchange-rate"]
+            }
+          }
+        },
+        {
+          "name": "Listar Pedidos (Sem Paginação)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"]
+            }
+          }
+        },
+        {
+          "name": "Listar Pedidos (Com Paginação)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar Pedido por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67a1b2c3d4e5f6789abcdef0",
+                  "description": "ID do pedido (use um ID válido retornado da criação)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Pedido",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2025-12-31\",\n  \"items\": [\n    {\n      \"product\": \"Notebook Dell Atualizado\",\n      \"quantity\": 1,\n      \"precoUnitarioUSD\": 1300.00\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67a1b2c3d4e5f6789abcdef0",
+                  "description": "ID do pedido (use um ID válido)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Deletar Pedido",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67a1b2c3d4e5f6789abcdef0",
+                  "description": "ID do pedido (use um ID válido)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Upload de Comprovante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": [],
+                  "description": "Arquivo do comprovante (PDF, JPG, PNG)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders/:id/comprovante",
+              "host": ["{{baseUrl}}"],
+              "path": ["orders", ":id", "comprovante"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67a1b2c3d4e5f6789abcdef0",
+                  "description": "ID do pedido (use um ID válido)"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Relatórios",
+      "item": [
+        {
+          "name": "Top Clientes (Padrão - 10)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/relatorios/top-clientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["relatorios", "top-clientes"]
+            }
+          }
+        },
+        {
+          "name": "Top Clientes (5 primeiros)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/relatorios/top-clientes?top=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["relatorios", "top-clientes"],
+              "query": [
+                {
+                  "key": "top",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Top Clientes (20 primeiros)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/relatorios/top-clientes?top=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["relatorios", "top-clientes"],
+              "query": [
+                {
+                  "key": "top",
+                  "value": "20"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
