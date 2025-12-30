@@ -4,8 +4,6 @@
 
 A __CommerceFlow API__ é uma aplicação backend robusta e completa, desenvolvida utilizando o framework __NestJS__, que oferece uma solução escalável e eficiente para o gerenciamento de operações comerciais. Com foco na administração de clientes e pedidos, a API integra tecnologias modernas para garantir alta performance, segurança e facilidade de manutenção. Este projeto implementa operações CRUD completas, cálculos automáticos de valores com conversão de moedas em tempo real, processamento assíncrono de notificações, upload de arquivos para armazenamento em nuvem e geração de relatórios analíticos.
 
-A aplicação é ideal para empresas que necessitam de uma base sólida para integrar sistemas de vendas, processamento de pedidos e análise de dados de clientes. Sua arquitetura modular permite expansões futuras, como autenticação de usuários, integração com gateways de pagamento e implementação de regras de negócio específicas.
-
 ## ✨ Funcionalidades Implementadas
 
 - ✅ __CRUD completo__ para clientes e pedidos com validações rigorosas
